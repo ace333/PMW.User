@@ -15,28 +15,49 @@ using System.Windows.Shapes;
 using OxyPlot;
 using EndUser.APIParser;
 using EndUser.Constants;
+using EndUser.BackgroundServices;
 
 namespace EndUserUI
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private HeartService _heartService;
+        private AcceleroService _acceleroService;
+
         public MainWindow()
         {
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             WindowState = WindowState.Maximized;
 
             InitializeComponent();
-            Test();
+
+            InitializeServices();
+            RunServices();
         }
 
-        private async void Test()
+        private void InitializeServices()
         {
-            var id = await HttpRequestParser.GetId(APIValues.HeartRateAddress);
-            var values = await HttpRequestParser.GetMeasurement(APIValues.HeartRateAddress);
-            Console.WriteLine(id);
+            _heartService = new HeartService();
+            _heartService.OnValuesUpdated += _heartService_OnValuesUpdated;
+
+            _acceleroService = new AcceleroService();
+            _acceleroService.OnValuesUpdated += _acceleroService_OnValuesUpdated;
+        }
+
+        private void RunServices()
+        {
+            _heartService.RunService();
+            _acceleroService.RunService();
+        }
+
+        private void _acceleroService_OnValuesUpdated(IList<double[]> values)
+        {
+            Console.WriteLine(values);
+        }
+
+        private void _heartService_OnValuesUpdated(double[] values)
+        {
+            Console.WriteLine(values);
         }
     }
 }

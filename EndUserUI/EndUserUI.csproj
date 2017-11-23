@@ -163,6 +163,10 @@
       <Project>{e5af0438-df1d-426d-aade-6623ee36d809}</Project>
       <Name>EndUser.APIParser</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EndUser.BackgroundServices\EndUser.BackgroundServices.csproj">
+      <Project>{ed15288e-f196-4130-8579-15c50b26e1ec}</Project>
+      <Name>EndUser.BackgroundServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EndUser.Constants\EndUser.Constants.csproj">
       <Project>{a9bd20f3-305a-4f6e-889f-923f1d5cd606}</Project>
       <Name>EndUser.Constants</Name>
