@@ -10,4 +10,10 @@ namespace EndUser.Constants
         public static string HeartRateAddress = "HeartRate";
         public static string AcceleroAddress = "Accelero";
     }
+
+    public class MeasurementKeys
+    {
+        public static string HeartRate = "HR";
+        public static string Accelero = "AC";
+    }
 }

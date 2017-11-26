@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EndUser.APIParser", "EndUse
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EndUser.Constants", "EndUser.Constants\EndUser.Constants.csproj", "{A9BD20F3-305A-4F6E-889F-923F1D5CD606}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndUser.BackgroundServices", "EndUser.BackgroundServices\EndUser.BackgroundServices.csproj", "{ED15288E-F196-4130-8579-15C50B26E1EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EndUser.BackgroundServices", "EndUser.BackgroundServices\EndUser.BackgroundServices.csproj", "{ED15288E-F196-4130-8579-15C50B26E1EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

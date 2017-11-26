@@ -7,6 +7,9 @@
         xmlns:oxy="http://oxyplot.org/wpf"
         mc:Ignorable="d"
         Title="PMW User Interface" Height="768" Width="1024">
+    <Window.DataContext>
+        <local:PlotsController />
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25*"/>
@@ -18,18 +21,27 @@
             <RowDefinition Height="303*"/>
             <RowDefinition Height="329*"/>
         </Grid.RowDefinitions>
-        <oxy:Plot Title="Accelerometer" Margin="174.8,26.8,53.6,31.6" Grid.Row="1" Grid.Column="1">
+        <oxy:Plot x:Name="acceleroPlot" Title="Accelerometer" Margin="174.8,26.8,53.6,31.6" Grid.Row="1" Grid.Column="1">
+            <oxy:Plot.Axes>
+                <oxy:LinearAxis Position="Bottom" Minimum="0" Maximum="100" />
+                <oxy:LinearAxis Position="Left" Minimum="-2" Maximum="2" />
+            </oxy:Plot.Axes>
             <oxy:Plot.Series>
-                <oxy:LineSeries ItemsSource="{Binding Points}"/>
+                <oxy:LineSeries ItemsSource="{Binding XAcceleroPoints}" Color="Red"/>
+                <oxy:LineSeries ItemsSource="{Binding YAcceleroPoints}" Color="Blue"/>
+                <oxy:LineSeries ItemsSource="{Binding ZAcceleroPoints}" Color="Green"/>
             </oxy:Plot.Series>
         </oxy:Plot>
-        <oxy:Plot Title="Heart Rate" Margin="174.8,10.4,53.6,26.4" Grid.Row="2" Grid.Column="1">
-            <oxy:LineSeries ItemsSource="{Binding Points}"/>
+        <oxy:Plot x:Name="heartPlot" Title="Heart Rate" Margin="174.8,10.4,53.6,26.4" Grid.Row="2" Grid.Column="1">
+            <oxy:Plot.Axes>
+                <oxy:LinearAxis Position="Bottom" Minimum="0" Maximum="100" />
+            </oxy:Plot.Axes>
+            <oxy:LineSeries ItemsSource="{Binding HeartPoints}" Color="Red"/>
         </oxy:Plot>
         <TextBlock HorizontalAlignment="Left" FontSize="50" Margin="57.8,24,0,0" TextWrapping="Wrap" Text="Patient Monitoring UI" VerticalAlignment="Top" Height="73" Width="571" Grid.Column="1"/>
         <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="353.8,76.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
         <TextBlock HorizontalAlignment="Left" FontSize="20" Margin="30.8,66.8,0,0" TextWrapping="Wrap" Text="jakaś legenda" VerticalAlignment="Top" Height="69" Width="125" Grid.Column="1" Grid.Row="1"/>
-        <TextBlock HorizontalAlignment="Left" FontSize="20" Margin="30.8,49.4,0,0" TextWrapping="Wrap" Text="Heart Rate :" VerticalAlignment="Top" Height="44" Width="125" Grid.Column="1" Grid.Row="2"/>
+        <TextBlock x:Name="heartRate_value" HorizontalAlignment="Left" FontSize="20" Margin="30.8,49.4,0,0" TextWrapping="Wrap" Text="Heart Rate :" VerticalAlignment="Top" Height="44" Width="125" Grid.Column="1" Grid.Row="2"/>
 
     </Grid>
 </Window>

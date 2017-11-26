@@ -41,7 +41,7 @@ namespace EndUser.BackgroundServices
                 var id = await HttpRequestParser.GetId(APIValues.AcceleroAddress);
                 if (id != _acceleroId)
                 {
-                    _acceleroId++;
+                    _acceleroId = Convert.ToInt32(id);
                     var values = await HttpRequestParser.GetListedMeasurement(APIValues.AcceleroAddress);
 
                     OnValuesUpdated(values);

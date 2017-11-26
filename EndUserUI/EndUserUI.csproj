@@ -132,6 +132,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PlotsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

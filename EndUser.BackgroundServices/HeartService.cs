@@ -41,7 +41,7 @@ namespace EndUser.BackgroundServices
                 var id = await HttpRequestParser.GetId(APIValues.HeartRateAddress);
                 if(id != _heartId)
                 {
-                    _heartId++;
+                    _heartId = Convert.ToInt32(id);
                     var values = await HttpRequestParser.GetMeasurement(APIValues.HeartRateAddress);
 
                     OnValuesUpdated(values);
