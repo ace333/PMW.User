@@ -66,8 +66,8 @@ namespace EndUserUI
 
                 if (CheckIfMaximumIsOverflew(acceleroPlot.Axes[0].Maximum, _controller.XAcceleroPoints))
                 {
-                    acceleroPlot.Axes[0].Minimum = _controller.XAcceleroPoints.Count;
-                    acceleroPlot.Axes[0].Maximum = _controller.XAcceleroPoints.Count + 100;
+                    acceleroPlot.Axes[0].Minimum = _controller.XAcceleroPoints.Count / 2;
+                    acceleroPlot.Axes[0].Maximum = acceleroPlot.Axes[0].Minimum + 100;
                 }
             }
             else
@@ -78,7 +78,7 @@ namespace EndUserUI
                 if (CheckIfMaximumIsOverflew(heartPlot.Axes[0].Maximum, _controller.HeartPoints))
                 {
                     heartPlot.Axes[0].Minimum = _controller.HeartPoints.Count;
-                    heartPlot.Axes[0].Maximum = _controller.HeartPoints.Count + 100;
+                    heartPlot.Axes[0].Maximum = heartPlot.Axes[0].Minimum + 100;
                 }
             }
         }
